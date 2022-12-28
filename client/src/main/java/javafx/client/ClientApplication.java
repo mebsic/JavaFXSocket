@@ -29,7 +29,11 @@ public class ClientApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setResizable(false);
         stage.setScene(scene);
-        stage.show();
+        if (ClientViewController.socket == null) {
+            stage.hide();
+        } else {
+            stage.show();
+        }
         stage.setOnCloseRequest(e -> ClientViewController.close());
         Platform.runLater(() -> stage.setTitle(ClientViewController.getDisplayName()));
     }

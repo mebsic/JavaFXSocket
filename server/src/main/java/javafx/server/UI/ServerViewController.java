@@ -48,6 +48,9 @@ public class ServerViewController implements Initializable {
         }
     }
 
+    /**
+     * Close the server and socket
+     */
     public static void close() {
         try {
             ss.close();
@@ -65,7 +68,7 @@ public class ServerViewController implements Initializable {
      */
     private void accept() {
         try {
-            while (ss != null) {
+            while (true) {
                 Socket socket = ss.accept();
                 show("Connection from " + socket + " at " + sfd.format(date));
                 new Thread(new ThreadClient(socket)).start();
@@ -111,7 +114,7 @@ public class ServerViewController implements Initializable {
 
         /**
          * Overloaded constructor
-         * @param socket
+         * @param socket server socket
          */
         public ThreadClient(Socket socket) {
             this.socket = socket;
@@ -130,6 +133,10 @@ public class ServerViewController implements Initializable {
                 DataInputStream inputFromClient = new DataInputStream(socket.getInputStream());
                 while (true) {
                     String msg = inputFromClient.readUTF();
+
+                    if (msg.equals("q")) {
+                        break;
+                    }
                     for (ThreadClient client : clients) {
                         client.send(msg);
                     }

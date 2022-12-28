@@ -55,6 +55,9 @@ public class ClientViewController implements Initializable {
         }
     }
 
+    /**
+     * Display an error if client tries connecting when the server is not running
+     */
     private void alert() {
         Platform.runLater(() -> {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -72,6 +75,9 @@ public class ClientViewController implements Initializable {
         });
     }
 
+    /**
+     * Close the client connection
+     */
     public static void close() {
         Platform.exit();
         System.exit(0);
@@ -84,7 +90,7 @@ public class ClientViewController implements Initializable {
      */
     private void listen() {
         try {
-            while (socket != null) {
+            while (true) {
                 DataInputStream fromServer = new DataInputStream(socket.getInputStream());
                 String msg = fromServer.readUTF();
                 show(msg);
@@ -92,8 +98,6 @@ public class ClientViewController implements Initializable {
         } catch (Exception ex) {
             if (ex.toString().startsWith("java.net.SocketException")) {
                 close();
-            } else {
-                show(ex.toString());
             }
         }
     }
@@ -114,6 +118,7 @@ public class ClientViewController implements Initializable {
             if (input.getText().equals("q")) {
                 toServer.writeUTF(disconnectMsg);
                 toServer.flush();
+                toServer.close();
                 close();
             } else if (input.getText().isEmpty()) {
                 // do nothing...

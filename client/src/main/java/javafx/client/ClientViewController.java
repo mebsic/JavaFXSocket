@@ -20,7 +20,6 @@ import java.util.ResourceBundle;
 public class ClientViewController implements Initializable {
 
     private static final StringBuilder username = new StringBuilder();
-    private static final String disconnectMsg = " left.";
     private static final String connectMsg = " joined.";
 
     @FXML
@@ -121,7 +120,6 @@ public class ClientViewController implements Initializable {
             }
 
             if (input.getText().equals("q")) {
-                toServer.writeUTF(getDisplayName() + disconnectMsg);
                 toServer.flush();
                 close();
             }

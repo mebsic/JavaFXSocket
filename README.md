@@ -1,8 +1,11 @@
 ## JavaFX Socket
 
 ## Client
-![image](https://user-images.githubusercontent.com/39607018/209715894-1be6d178-f38a-4c3a-bed7-d5e6a4c301c5.png)
-![image](https://user-images.githubusercontent.com/39607018/209716016-d37f4d0f-96ac-4bd5-8dcb-631cb6aee11d.png)
+### Messages
+![image](https://user-images.githubusercontent.com/39607018/210123526-1d8cc983-726e-417d-9093-7f8a17111d3c.png)
+
+### Connection error
+![image](https://user-images.githubusercontent.com/39607018/210123422-5fc79aa9-8145-4d44-b1fd-8b1115ca1928.png)
 
 ## Server
-![image](https://user-images.githubusercontent.com/39607018/209715790-62999373-a32a-42fb-b4dc-16aab7e53bef.png)
+![image](https://user-images.githubusercontent.com/39607018/210123507-aa0dfdf4-c7a1-417d-833f-b67bd7b4c57e.png)

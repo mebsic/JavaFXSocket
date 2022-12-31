@@ -46,9 +46,9 @@ public class ClientViewController implements Initializable {
             toServer.writeUTF(getDisplayName() + connectMsg);
             toServer.flush();
 
-            listen(socket);
             send.setOnAction(e -> send(socket));
             input.setOnAction(e -> send(socket));
+            listen(socket);
         } catch (Exception ex) {
             alert();
         }

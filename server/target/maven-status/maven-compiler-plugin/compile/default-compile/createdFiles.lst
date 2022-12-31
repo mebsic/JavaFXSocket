@@ -1,0 +1,5 @@
+javafx\server\ServerViewController.class
+module-info.class
+javafx\server\ServerApplication.class
+javafx\server\Main.class
+javafx\server\ServerViewController$ThreadClient.class

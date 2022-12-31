@@ -3,7 +3,6 @@ package javafx.server;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.server.UI.ServerViewController;
 import javafx.stage.Stage;
 
 /**
@@ -19,6 +18,7 @@ public class ServerApplication extends Application {
      * Create the scene using server-view (fxml loader)
      * Sets stage properties and close request event handler
      * Implemented using error handling
+     *
      * @param stage used in window layout
      * @throws Exception used to catch fxml errors
      */
@@ -29,12 +29,17 @@ public class ServerApplication extends Application {
         stage.setTitle("Server");
         stage.setResizable(false);
         stage.setScene(scene);
-        stage.show();
+        if (!ServerViewController.ss.isClosed()) {
+            stage.show();
+        } else {
+            ServerViewController.close();
+        }
         stage.setOnCloseRequest(e -> ServerViewController.close());
     }
 
     /**
      * Invoke function to launch server application
+     *
      * @param args unused
      */
     public static void main(String[] args) {

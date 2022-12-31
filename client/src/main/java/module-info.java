@@ -9,6 +9,4 @@ module javafx.client {
 
     opens javafx.client to javafx.fxml;
     exports javafx.client;
-    exports javafx.client.UI;
-    opens javafx.client.UI to javafx.fxml;
 }

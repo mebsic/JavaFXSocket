@@ -1,6 +1,5 @@
 package javafx.client;
 
-import javafx.client.UI.ClientViewController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +19,7 @@ public class ClientApplication extends Application {
      * Sets stage properties and close request event handler
      * Update window title to generated client display name
      * Implemented using error handling
+     *
      * @param stage used in window layout
      * @throws Exception used to catch fxml errors
      */
@@ -29,17 +29,18 @@ public class ClientApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setResizable(false);
         stage.setScene(scene);
-        if (ClientViewController.socket == null) {
+        if (ClientViewController.getDisplayName().equals("Client")) {
             stage.hide();
         } else {
             stage.show();
         }
         stage.setOnCloseRequest(e -> ClientViewController.close());
-        Platform.runLater(() -> stage.setTitle(ClientViewController.getDisplayName()));
+        Platform.runLater(() -> stage.setTitle(ClientViewController.getDisplayName() + " - type q to exit"));
     }
 
     /**
      * Invoke function to launch client application
+     *
      * @param args unused
      */
     public static void main(String[] args) {

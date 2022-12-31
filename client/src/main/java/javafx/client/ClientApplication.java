@@ -29,7 +29,8 @@ public class ClientApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setResizable(false);
         stage.setScene(scene);
-        if (ClientViewController.getDisplayName().equals("Client")) {
+        if (ClientViewController.getDisplayName().isEmpty()) {
+            // connection error, could not set display name for client
             stage.hide();
         } else {
             stage.show();

@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
  */
 public class ClientViewController implements Initializable {
 
-    private static final StringBuilder username = new StringBuilder("Client");
+    private static final StringBuilder username = new StringBuilder();
     private static final String disconnectMsg = " left.";
     private static final String connectMsg = " joined.";
 
@@ -135,7 +135,7 @@ public class ClientViewController implements Initializable {
      * Used to make each client distinct
      */
     private static void setDisplayName() {
-        username.append(getRandomNumber(10, 100));
+        username.append("Client").append(getRandomNumber(10, 100));
     }
 
     /**

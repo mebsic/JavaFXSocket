@@ -141,14 +141,13 @@ public class ServerViewController implements Initializable {
                     if (msg.equals("q")) {
                         break;
                     }
-
                     for (ThreadClient client : clients) {
                         client.send(msg);
                     }
                     show(msg);
                 }
             } catch (Exception ex) {
-                show(ex.toString());
+                close();
             }
         }
 

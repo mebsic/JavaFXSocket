@@ -9,6 +9,4 @@ module javafx.server {
 
     opens javafx.server to javafx.fxml;
     exports javafx.server;
-    exports javafx.server.UI;
-    opens javafx.server.UI to javafx.fxml;
 }
